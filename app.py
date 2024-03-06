@@ -142,12 +142,12 @@ def main():
                                                 st.sidebar.subheader(" ")
                                                 st.sidebar.subheader("Which model would you like to use?")
                                                 classifier = st.sidebar.selectbox("", ("Support Vector Machine (SVM)", "Logistic Regression", "Random Forest"))
-                                                Nitrogren=st.number_input('Input your Nitrogen value Here:',"Type Here")
-                                                Phosphorus=st.number_input('Input your Phosphorus value Here:',"Type Here")
-                                                Potassium=st.number_input('Input your Potassium value Here:',"Type Here")
-                                                temperature=st.number_input('Input your Temperature here:',"Type Here") 
-                                                humidity=st.number_input('Input your Humidity here:',"Type Here") 
-                                                ph=st.number_input('Input your PH here:',"Type Here")
+                                                Nitrogren=st.text_input('Input your Nitrogen value Here:',"Type Here")
+                                                Phosphorus=st.text_input('Input your Phosphorus value Here:',"Type Here")
+                                                Potassium=st.text_input('Input your Potassium value Here:',"Type Here")
+                                                temperature=st.text_input('Input your Temperature here:',"Type Here") 
+                                                humidity=st.text_input('Input your Humidity here:',"Type Here") 
+                                                ph=st.text_input('Input your PH here:',"Type Here")
                                                 result1=""
 
                                                 if st.button("Predict"):
