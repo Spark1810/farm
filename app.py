@@ -188,6 +188,11 @@ def main():
                                                 if st.sidebar.checkbox("Show raw data", False):
                                                         st.subheader("Crop Prediction DataSet")
                                                         bam.show(df)
+                                                        # Embed bamboolib visualization in Streamlit app
+                                                        with open("output.html", "r") as f:
+                                                            html_code = f.read()
+
+                                                            st.components.v1.html(html_code, height=800)
 
                                                 
                                                 if task == "Profiles":
