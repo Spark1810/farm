@@ -14,7 +14,6 @@ pickle_in1 = open(r"crop_pred_rand.pkl","rb")
 classifier=pickle.load(pickle_in1)
 import streamlit as st
 import random
-import bamboolib as bam
 
 # List of farming tips
 farming_tips = [
@@ -184,15 +183,6 @@ def main():
                                                             accuracy = model.score(x_test, y_test)
                                                             y_pred = model.predict(x_test)
                                                             st.write("Accuracy: ", accuracy.round(2)*100-5)
-                                                          
-                                                if st.sidebar.checkbox("Show raw data", False):
-                                                        st.subheader("Crop Prediction DataSet")
-                                                        bam.show(df)
-                                                        # Embed bamboolib visualization in Streamlit app
-                                                        with open("output.html", "r") as f:
-                                                            html_code = f.read()
-
-                                                            st.components.v1.html(html_code, height=800)
 
                                                 
                                                 if task == "Profiles":
