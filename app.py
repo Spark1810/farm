@@ -284,7 +284,7 @@ def main():
 
         elif choice == "ABOUT US":
                 st.header("CREATED BY _**Sudharshan Vijay SK**_")
-                st.subheader("UNDER THE GUIDENCE OF _**Dr.B.Radha MCA., Ph.D.**_")
+                st.header("UNDER THE GUIDENCE OF _**Dr.B.Radha MCA., Ph.D.**_")
 
 
 if __name__ == '__main__':
