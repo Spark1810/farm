@@ -12,6 +12,24 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 pickle_in1 = open(r"crop_pred_rand.pkl","rb")
 classifier=pickle.load(pickle_in1)
+import streamlit as st
+import random
+
+# List of farming tips
+farming_tips = [
+    "Start with a well-designed farm layout that optimizes space and accessibility.",
+    "Invest in high-quality seeds and planting materials for better crop performance.",
+    "Practice soil conservation techniques such as contour plowing and terracing to prevent erosion.",
+    "Use cover crops during the off-season to improve soil health and fertility.",
+    "Implement drip irrigation systems for efficient water use and reduced evaporation.",
+    "Install rainwater harvesting systems to capture and store rainwater for irrigation.",
+    "Rotate crops to prevent soil depletion and minimize pest and disease pressure.",
+    "Keep detailed records of planting dates, crop yields, and inputs for future planning and analysis.",
+    "Utilize organic farming practices to minimize chemical inputs and promote environmental sustainability.",
+    "Monitor weather forecasts regularly to plan farm activities effectively.",
+    "Use agroecological principles such as biodiversity conservation and soil conservation."
+]
+
 
 
 # Security
@@ -24,6 +42,20 @@ def check_hashes(password,hashed_text):
         if make_hashes(password) == hashed_text:
                 return hashed_text
         return False
+
+# Function to display a random farming tip
+def display_random_tip():
+    random_tip = random.choice(farming_tips)
+    st.write(random_tip)
+
+# Streamlit app
+def tip():
+    st.title("Random Farming Tips")
+    st.subheader("Click below to get a random farming tip")
+    if st.button("Get Random Tip"):
+        display_random_tip()
+
+
 
 # DB Management
 import sqlite3 
@@ -124,8 +156,8 @@ def main():
                                                 if st.button("Predict"):
                                                         result=predict_note_authentication(Nitrogren,Phosphorus,Potassium,temperature,humidity,ph)
                                                         st.success('The Suitable Crop is {}'.format(result))
-                                                        st.info("Using move Cowdung and Humus waste can help in recovering the Phosperous and Nitrogen level of soil.")
-                                                    
+                                                        tip()
+                                 
                                                 if classifier == "Support Vector Machine (SVM)":
                                                         if st.sidebar.button("Accuracy", key = 'classify'):
                                                             st.subheader("Support Vector Machine (SVM) Results")
@@ -201,8 +233,8 @@ def main():
                                 if st.button("Predict"):
                                         result=predict_note_authentication(Nitrogren,Phosphorus,Potassium,temperature,humidity,ph)
                                         st.success('The Suitable Crop is {}'.format(result))
-                                        st.info("Using move Cowdung and Humus waste can help in recovering the Phosperous and Nitrogen level of soil.")
-                                    
+                                        tip()
+                                
                                 if classifier == "Support Vector Machine (SVM)":
                                         if st.sidebar.button("Accuracy", key = 'classify'):
                                             st.subheader("Support Vector Machine (SVM) Results")
