@@ -14,6 +14,7 @@ pickle_in1 = open(r"crop_pred_rand.pkl","rb")
 classifier=pickle.load(pickle_in1)
 import streamlit as st
 import random
+import bamboolib as bam
 
 # List of farming tips
 farming_tips = [
@@ -186,7 +187,7 @@ def main():
                                                           
                                                 if st.sidebar.checkbox("Show raw data", False):
                                                         st.subheader("Crop Prediction DataSet")
-                                                        st.write(df)
+                                                        bam.show(df)
 
                                                 
                                                 if task == "Profiles":
