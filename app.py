@@ -46,14 +46,11 @@ def check_hashes(password,hashed_text):
 # Function to display a random farming tip
 def display_random_tip():
     random_tip = random.choice(farming_tips)
-    st.write(random_tip)
+    st.info(random_tip)
 
 # Streamlit app
 def tip():
-    st.title("Random Farming Tips")
-    st.subheader("Click below to get a random farming tip")
-    if st.button("Get Random Tip"):
-        display_random_tip()
+    display_random_tip()
 
 
 
